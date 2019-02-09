@@ -87,6 +87,8 @@
 
 
 
+  
+
 
   <link rel="alternate" href="/atom.xml" title="I code,I crash" type="application/atom+xml" />
 
@@ -95,17 +97,14 @@
 
 
 
-<meta name="description" content="Java|理科男|编程">
 <meta property="og:type" content="website">
 <meta property="og:title" content="categories">
 <meta property="og:url" content="https://blog.tolvyou.cn/categories/index.html">
 <meta property="og:site_name" content="I code,I crash">
-<meta property="og:description" content="Java|理科男|编程">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2018-05-20T00:20:40.256Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="categories">
-<meta name="twitter:description" content="Java|理科男|编程">
 
 
 
@@ -346,6 +345,14 @@
           
 
   
+    <div class="comments" id="comments">
+      
+        <div onclick="showGitment()" id="gitment-display-button">显示 Gitment 评论</div>
+        <div id="gitment-container" style="display:none"></div>
+      
+    </div>
+
+  
 
 
 
@@ -373,9 +380,11 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
+			  <a href="/">
               <img class="site-author-image" itemprop="image"
                 src="/uploads/lishq.jpg"
                 alt="足迹丶" />
+			  </a>
             
               <p class="site-author-name" itemprop="name">足迹丶</p>
               <p class="site-description motion-element" itemprop="description">Java|理科男|编程</p>
@@ -640,6 +649,47 @@
 
 
 
+
+
+<!-- LOCAL: You can save these files to your site and update links -->
+    
+        
+        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
+        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
+    
+<!-- END LOCAL -->
+
+    
+
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.pathname, 
+            owner: 'lishq',
+            repo: 'https://github.com/lishq/lishq.github.io',
+            
+            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: 'ecc523f5043e5b58976e0200068e744012bfe40d',
+            
+                client_id: '2080d68a036cd49a2a2d'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      function showGitment(){
+        document.getElementById("gitment-display-button").style.display = "none";
+        document.getElementById("gitment-container").style.display = "block";
+        renderGitment();
+      }
+      
+      </script>
+    
 
 
 

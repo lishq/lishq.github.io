@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.tolvyou.cn/2019/01/10/git-review/</loc>
+    
+    <lastmod>2019-02-09T08:57:13.550Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.tolvyou.cn/top/index.html</loc>
     
-    <lastmod>2019-02-08T14:15:04.497Z</lastmod>
+    <lastmod>2019-02-09T08:50:57.978Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://blog.tolvyou.cn/about/index.html</loc>
     
-    <lastmod>2019-02-08T11:44:59.206Z</lastmod>
+    <lastmod>2019-02-09T08:50:16.243Z</lastmod>
     
   </url>
   
@@ -124,13 +131,6 @@
     <loc>https://blog.tolvyou.cn/2019/01/11/JMM-Mind/</loc>
     
     <lastmod>2019-01-11T06:52:59.530Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.tolvyou.cn/2019/01/10/git-review/</loc>
-    
-    <lastmod>2019-01-10T15:08:21.364Z</lastmod>
     
   </url>
   
