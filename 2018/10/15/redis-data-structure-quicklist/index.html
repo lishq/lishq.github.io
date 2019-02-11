@@ -103,12 +103,12 @@
 <meta property="og:site_name" content="I code,I crash">
 <meta property="og:description" content="介绍Redis 早期版本存储 list 列表数据结构使用的是压缩列表 ziplist 和普通的双向链表 linkedlist，也就是元素少时用 ziplist，元素多时用 linkedlist。  项目地址：https://github.com/lishq/redis-base-demo">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://lishq.oss-cn-beijing.aliyuncs.com/github.io/2b47a047f227087f9116bed2e28dbdcf.PNG">
-<meta property="og:updated_time" content="2019-02-08T08:21:50.139Z">
+<meta property="og:image" content="https://lishq.oss-cn-beijing.aliyuncs.com/github.io/2b47a047f227087f9116bed2e28dbdcf.PNG">
+<meta property="og:updated_time" content="2019-02-11T14:16:59.383Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="redis数据结构之『快速列表』">
 <meta name="twitter:description" content="介绍Redis 早期版本存储 list 列表数据结构使用的是压缩列表 ziplist 和普通的双向链表 linkedlist，也就是元素少时用 ziplist，元素多时用 linkedlist。  项目地址：https://github.com/lishq/redis-base-demo">
-<meta name="twitter:image" content="http://lishq.oss-cn-beijing.aliyuncs.com/github.io/2b47a047f227087f9116bed2e28dbdcf.PNG">
+<meta name="twitter:image" content="https://lishq.oss-cn-beijing.aliyuncs.com/github.io/2b47a047f227087f9116bed2e28dbdcf.PNG">
 
 
 
@@ -429,7 +429,7 @@
 <p>考虑到链表的附加空间相对太高，prev 和 next 指针就要占去 16 个字节 (64bit 系统的指针是 8 个字节)，另外每个节点的内存都是单独分配，会加剧内存的碎片化，影响内存管理效率。后续版本对列表数据结构进行了改造，使用 quicklist 代替了 ziplist 和 linkedlist。</p>
 
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; rpush lishq:test redis mongodb spark</span><br><span class="line">(integer) <span class="number">3</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; debug object lishq:test</span><br><span class="line">Value at:<span class="number">0x7f3bd7e285b0</span> refcount:<span class="number">1</span> encoding:quicklist serializedlength:<span class="number">36</span> lru:<span class="number">12861819</span> lru_seconds_idle:<span class="number">22</span> ql_nodes:<span class="number">1</span> ql_avg_node:<span class="number">3.00</span> ql_ziplist_max:<span class="number">-2</span> ql_compressed:<span class="number">0</span> ql_uncompressed_size:<span class="number">34</span></span><br></pre></td></tr></table></figure>
-<h3 id="quicklist"><a href="#quicklist" class="headerlink" title="quicklist"></a>quicklist</h3><p>quicklist 是 ziplist 和 linkedlist 的混合体，它将 linkedlist 按段切分，每一段使用 ziplist 来紧凑存储，多个 ziplist 之间使用双向指针串接起来。<br><img src="http://lishq.oss-cn-beijing.aliyuncs.com/github.io/2b47a047f227087f9116bed2e28dbdcf.PNG" alt=""></p>
+<h3 id="quicklist"><a href="#quicklist" class="headerlink" title="quicklist"></a>quicklist</h3><p>quicklist 是 ziplist 和 linkedlist 的混合体，它将 linkedlist 按段切分，每一段使用 ziplist 来紧凑存储，多个 ziplist 之间使用双向指针串接起来。<br><img src="https://lishq.oss-cn-beijing.aliyuncs.com/github.io/2b47a047f227087f9116bed2e28dbdcf.PNG" alt=""></p>
 <ul>
 <li>为了进一步节约空间，Redis 还会对 ziplist 进行压缩存储，使用 LZF 算法压缩，可以选择压缩深度。</li>
 </ul>

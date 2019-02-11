@@ -423,7 +423,7 @@
         
           <h3 id="Reactor模型"><a href="#Reactor模型" class="headerlink" title="Reactor模型"></a>Reactor模型</h3><p>大量网络框架采用reactor模型进行设计和开发，reactor模式基于事件驱动，特别适合处理海量的I/O事件。</p>
 
-<h3 id="Reactor多线程模型"><a href="#Reactor多线程模型" class="headerlink" title="Reactor多线程模型"></a>Reactor<a href="https://blog.csdn.net/king866/article/details/54427447" target="_blank" rel="noopener">多线程模型</a></h3><p><img src="http://lishq.oss-cn-beijing.aliyuncs.com/github.io/ce86218219ff60c70d21e5f20c3c217e.jpg" alt="多线程模型"></p>
+<h3 id="Reactor多线程模型"><a href="#Reactor多线程模型" class="headerlink" title="Reactor多线程模型"></a>Reactor<a href="https://blog.csdn.net/king866/article/details/54427447" target="_blank" rel="noopener">多线程模型</a></h3><p><img src="https://lishq.oss-cn-beijing.aliyuncs.com/github.io/ce86218219ff60c70d21e5f20c3c217e.jpg" alt="多线程模型"></p>
 <ul>
 <li>有专门的nio线程-acceptor线程用于监听服务端，接收客户端的tcp连接请求</li>
 <li>网络io操作读写由一个nio线程池负责，包含一个队列和多个可用线程，由这些nio线程负责消息的读取，解码，编码，发送</li>

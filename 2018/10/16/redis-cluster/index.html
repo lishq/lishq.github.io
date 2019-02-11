@@ -103,12 +103,12 @@
 <meta property="og:site_name" content="I code,I crash">
 <meta property="og:description" content="介绍Redis 集群是一个提供在多个Redis间节点间共享数据的程序集Redis 集群方案： Codis、Cluster（去中心化）">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://lishq.oss-cn-beijing.aliyuncs.com/github.io/ca055e87a773c7e1cb8505333e0f340b.png">
-<meta property="og:updated_time" content="2019-02-08T08:21:16.402Z">
+<meta property="og:image" content="https://lishq.oss-cn-beijing.aliyuncs.com/github.io/ca055e87a773c7e1cb8505333e0f340b.png">
+<meta property="og:updated_time" content="2019-02-11T14:16:16.828Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="redis的集群模式">
 <meta name="twitter:description" content="介绍Redis 集群是一个提供在多个Redis间节点间共享数据的程序集Redis 集群方案： Codis、Cluster（去中心化）">
-<meta name="twitter:image" content="http://lishq.oss-cn-beijing.aliyuncs.com/github.io/ca055e87a773c7e1cb8505333e0f340b.png">
+<meta name="twitter:image" content="https://lishq.oss-cn-beijing.aliyuncs.com/github.io/ca055e87a773c7e1cb8505333e0f340b.png">
 
 
 
@@ -427,7 +427,7 @@
 <li>自动分割数据到不同的节点上</li>
 <li>整个集群的部分节点失败或者不可达的情况下能够继续处理命令。</li>
 <li>不支持处理多个keys的命令,因为这需要在不同的节点间移动数据</li>
-<li>在执行故障转移期间， 集群可能会丢失写命令。<br><img src="http://lishq.oss-cn-beijing.aliyuncs.com/github.io/ca055e87a773c7e1cb8505333e0f340b.png" alt=""><br>如图所示，该集群有三个 Redis 节点组成，每个节点负责整个集群的一部分数据，每个节点负责的数据多少可能不一样。这三个节点相互连接组成一个对等的集群，它们之间通过一种特殊的二进制协议相互交互集群信息。</li>
+<li>在执行故障转移期间， 集群可能会丢失写命令。<br><img src="https://lishq.oss-cn-beijing.aliyuncs.com/github.io/ca055e87a773c7e1cb8505333e0f340b.png" alt=""><br>如图所示，该集群有三个 Redis 节点组成，每个节点负责整个集群的一部分数据，每个节点负责的数据多少可能不一样。这三个节点相互连接组成一个对等的集群，它们之间通过一种特殊的二进制协议相互交互集群信息。</li>
 </ul>
 <h3 id="槽位定位算法"><a href="#槽位定位算法" class="headerlink" title="槽位定位算法"></a>槽位定位算法</h3><p>Cluster 默认会对 key 值使用 crc16 算法进行 hash 得到一个整数值，然后用这个整数值对 16384 进行取模来得到具体槽位。</p>
 <p>Cluster 还允许用户强制某个 key 挂在特定槽位上</p>
@@ -438,9 +438,9 @@
 <p>cluster-node-timeout，表示当某个节点持续 timeout 的时间失联时，才可以认定该节点出现故障，需要进行主从切换。如果没有这个选项，网络抖动会导致主从频繁切换 (数据的重新复制)。</p>
 <p>cluster-slave-validity-factor作为倍乘系数来放大这个超时时间来宽松容错的紧急程度。如果这个系数为零，那么主从切换是不会抗拒网络抖动的。如果这个系数大于 1，它就成了主从切换的松弛系数</p>
 <h3 id="可能下线与确定下线"><a href="#可能下线与确定下线" class="headerlink" title="可能下线与确定下线"></a>可能下线与确定下线</h3><p>因为 Redis Cluster 是去中心化的，一个节点认为某个节点失联了并不代表所有的节点都认为它失联了。所以集群还得经过一次协商的过程，只有当大多数节点都认定了某个节点失联了，集群才认为该节点需要进行主从切换来容错。</p>
-<p>Redis 集群节点采用 <a href="http://kaiyuan.me/2015/07/08/Gossip/" target="_blank" rel="noopener">Gossip协议</a>来广播自己的状态以及自己对整个集群认知的改变</p>
+<p>Redis 集群节点采用 <a href="https://kaiyuan.me/2015/07/08/Gossip/" target="_blank" rel="noopener">Gossip协议</a>来广播自己的状态以及自己对整个集群认知的改变</p>
 <blockquote>
-<p>参考：<a href="http://redis.cn/topics/sentinel.html" target="_blank" rel="noopener">http://redis.cn/topics/sentinel.html</a><br><a href="http://redis.cn/topics/cluster-spec.html" target="_blank" rel="noopener">http://redis.cn/topics/cluster-spec.html</a><br>《redis设计与实现（第二版）》</p>
+<p>参考：<a href="https://redis.cn/topics/sentinel.html" target="_blank" rel="noopener">https://redis.cn/topics/sentinel.html</a><br><a href="https://redis.cn/topics/cluster-spec.html" target="_blank" rel="noopener">https://redis.cn/topics/cluster-spec.html</a><br>《redis设计与实现（第二版）》</p>
 </blockquote>
 
       

@@ -103,7 +103,7 @@
 <meta property="og:site_name" content="I code,I crash">
 <meta property="og:description" content="介绍 Redis Sentinel 是一个分布式系统，用于管理多个 Redis 服务器（instance），本质上只是一个运行在特殊模式下的 Redis 服务器，提供高可用性(HA)解决方案  Sentinel 监控： Sentinel 会不断地检查你的主服务器和从服务器是否运作正常。 提醒： 当被监控的某个 Redis 服务器出现问题时， Sentinel 可以通过 API 向管理员或者其他应用">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-29T11:12:04.285Z">
+<meta property="og:updated_time" content="2019-02-11T14:18:39.112Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="redis的sentinel模式">
 <meta name="twitter:description" content="介绍 Redis Sentinel 是一个分布式系统，用于管理多个 Redis 服务器（instance），本质上只是一个运行在特殊模式下的 Redis 服务器，提供高可用性(HA)解决方案  Sentinel 监控： Sentinel 会不断地检查你的主服务器和从服务器是否运作正常。 提醒： 当被监控的某个 Redis 服务器出现问题时， Sentinel 可以通过 API 向管理员或者其他应用">
@@ -459,7 +459,7 @@
 <li>-LOADING</li>
 <li>-MASTERDOWN</li>
 </ul>
-<p>对于主服务器：主观下线状态切换到客观下线状态，使用<a href="http://kaiyuan.me/2015/07/08/Gossip/" target="_blank" rel="noopener">Gossip协议</a>，在sentinel给定的时间内，从sentinel收集到了足够数量的主服务器下线报告，状态改成客观下线。</p>
+<p>对于主服务器：主观下线状态切换到客观下线状态，使用<a href="https://kaiyuan.me/2015/07/08/Gossip/" target="_blank" rel="noopener">Gossip协议</a>，在sentinel给定的时间内，从sentinel收集到了足够数量的主服务器下线报告，状态改成客观下线。</p>
 <p>客观下线只适合主服务器。</p>
 <p>其他类型的redis实例，sentinel判断下线无需协商。</p>
 <h5 id="每个-Sentinel-都需要定期执行的任务"><a href="#每个-Sentinel-都需要定期执行的任务" class="headerlink" title="每个 Sentinel 都需要定期执行的任务"></a>每个 Sentinel 都需要定期执行的任务</h5><ul>
@@ -484,7 +484,7 @@
 <li>剩下的，选择优先级最高、复制偏移量最大的从服务器，如果复制偏移量不可用，选择运行ID最小的从服务器升级为主服务器</li>
 </ul>
 <blockquote>
-<p>参考：<a href="http://redis.cn/topics/sentinel.html" target="_blank" rel="noopener">http://redis.cn/topics/sentinel.html</a><br>《redis设计与实现（第二版）》</p>
+<p>参考：<a href="https://redis.cn/topics/sentinel.html" target="_blank" rel="noopener">https://redis.cn/topics/sentinel.html</a><br>《redis设计与实现（第二版）》</p>
 </blockquote>
 
       

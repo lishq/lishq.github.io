@@ -758,8 +758,8 @@
         
           <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>netty学习系列笔记总结，Pipeline源码浅析，错误之处欢迎指正, 共同学习</p>
 
-<h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>在 <a href="http://blog.tolvyou.cn/2018/11/13/netty-pipeline-1st/">netty核心组件-pipeline解析(一)</a> 中我们了解了pipeline 的基本概念和初始化及节点添加与删除逻辑，知道了 Netty 是如何处理网络数据的，这篇分析 pipeline 的事件和异常的传播。</p>
-<h3 id="pipeline中的inBound事件传播"><a href="#pipeline中的inBound事件传播" class="headerlink" title="pipeline中的inBound事件传播"></a>pipeline中的inBound事件传播</h3><p>在 <a href="http://blog.tolvyou.cn/2018/11/11/netty-accept-request/">netty-接受请求过程源码分析</a> 我们已经分析了新连接的建立过程。接着我们在 NioEventLoop 类的 processSelectedKey 方法中，监听 accpet 事件和 read 事件。</p>
+<h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>在 <a href="https://blog.tolvyou.cn/2018/11/13/netty-pipeline-1st/">netty核心组件-pipeline解析(一)</a> 中我们了解了pipeline 的基本概念和初始化及节点添加与删除逻辑，知道了 Netty 是如何处理网络数据的，这篇分析 pipeline 的事件和异常的传播。</p>
+<h3 id="pipeline中的inBound事件传播"><a href="#pipeline中的inBound事件传播" class="headerlink" title="pipeline中的inBound事件传播"></a>pipeline中的inBound事件传播</h3><p>在 <a href="https://blog.tolvyou.cn/2018/11/11/netty-accept-request/">netty-接受请求过程源码分析</a> 我们已经分析了新连接的建立过程。接着我们在 NioEventLoop 类的 processSelectedKey 方法中，监听 accpet 事件和 read 事件。</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/11/14/netty-pipeline-2nd/#more" rel="contents">
@@ -1095,8 +1095,8 @@
         
           <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>netty学习系列笔记总结，接受请求过程源码浅析，错误之处欢迎指正, 共同学习</p>
 
-<h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p><a href="http://blog.tolvyou.cn/2018/11/04/netty-startup-details/#more">netty启动过程源码分析</a>，我们得知，服务器最终注册了一个 Accept 事件等待客户端的连接。我们也知道，NioServerSocketChannel 将自己注册到了 boss 单例线程池（reactor 线程）上，也就是 EventLoop.</p>
-<p><a href="http://blog.tolvyou.cn/2018/11/07/netty-nioEventLoop/#more">EventLoop</a>所做的事情均分为以下三个步骤</p>
+<h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p><a href="https://blog.tolvyou.cn/2018/11/04/netty-startup-details/#more">netty启动过程源码分析</a>，我们得知，服务器最终注册了一个 Accept 事件等待客户端的连接。我们也知道，NioServerSocketChannel 将自己注册到了 boss 单例线程池（reactor 线程）上，也就是 EventLoop.</p>
+<p><a href="https://blog.tolvyou.cn/2018/11/07/netty-nioEventLoop/#more">EventLoop</a>所做的事情均分为以下三个步骤</p>
 <p>1.轮询注册在selector上的IO事件</p>
 <p>2.处理IO事件</p>
 <p>3.执行异步task</p>

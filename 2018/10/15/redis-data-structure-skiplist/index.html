@@ -103,14 +103,14 @@
 <meta property="og:site_name" content="I code,I crash">
 <meta property="og:description" content="介绍跳跃表在 Redis 中不如链表和字典等数据结构的应用广泛，只有两个地方用到。一是实现有序集合键，另一个是在集群节点中用作内部数据结构。  项目地址：https://github.com/lishq/redis-base-demo  Redis 的 zset 是一个复合结构 需要hash存储value和score的关系 需要提供按照 score 来排序的功能 需要能够指定 score 的范围来">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://lishq.oss-cn-beijing.aliyuncs.com/github.io/6f55aaf8f7a2a2932bc26af41b10ff95.png">
-<meta property="og:image" content="http://lishq.oss-cn-beijing.aliyuncs.com/github.io/b9ea9798c55317dc4af25ef559ab6029.png">
-<meta property="og:image" content="http://lishq.oss-cn-beijing.aliyuncs.com/github.io/41b6036f2249e072eff9f749e27c409b.png">
-<meta property="og:updated_time" content="2018-10-29T07:51:05.677Z">
+<meta property="og:image" content="https://lishq.oss-cn-beijing.aliyuncs.com/github.io/6f55aaf8f7a2a2932bc26af41b10ff95.png">
+<meta property="og:image" content="https://lishq.oss-cn-beijing.aliyuncs.com/github.io/b9ea9798c55317dc4af25ef559ab6029.png">
+<meta property="og:image" content="https://lishq.oss-cn-beijing.aliyuncs.com/github.io/41b6036f2249e072eff9f749e27c409b.png">
+<meta property="og:updated_time" content="2019-02-11T14:17:25.977Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="redis数据结构之『跳跃列表』">
 <meta name="twitter:description" content="介绍跳跃表在 Redis 中不如链表和字典等数据结构的应用广泛，只有两个地方用到。一是实现有序集合键，另一个是在集群节点中用作内部数据结构。  项目地址：https://github.com/lishq/redis-base-demo  Redis 的 zset 是一个复合结构 需要hash存储value和score的关系 需要提供按照 score 来排序的功能 需要能够指定 score 的范围来">
-<meta name="twitter:image" content="http://lishq.oss-cn-beijing.aliyuncs.com/github.io/6f55aaf8f7a2a2932bc26af41b10ff95.png">
+<meta name="twitter:image" content="https://lishq.oss-cn-beijing.aliyuncs.com/github.io/6f55aaf8f7a2a2932bc26af41b10ff95.png">
 
 
 
@@ -431,9 +431,9 @@
 <li>需要提供按照 score 来排序的功能</li>
 <li>需要能够指定 score 的范围来获取 value 列表的功能，「跳跃列表」</li>
 </ul>
-<p><img src="http://lishq.oss-cn-beijing.aliyuncs.com/github.io/6f55aaf8f7a2a2932bc26af41b10ff95.png" alt=""></p>
+<p><img src="https://lishq.oss-cn-beijing.aliyuncs.com/github.io/6f55aaf8f7a2a2932bc26af41b10ff95.png" alt=""></p>
 <a id="more"></a>
-<h3 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h3><p><img src="http://lishq.oss-cn-beijing.aliyuncs.com/github.io/b9ea9798c55317dc4af25ef559ab6029.png" alt=""></p>
+<h3 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h3><p><img src="https://lishq.oss-cn-beijing.aliyuncs.com/github.io/b9ea9798c55317dc4af25ef559ab6029.png" alt=""></p>
 <ul>
 <li>Redis 的跳跃表共有 64 层</li>
 <li>最底层双向链表，保证数据存储，有序排列</li>
@@ -441,7 +441,7 @@
 <li>每一个层元素的遍历都是从 kv header 出发</li>
 </ul>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">zslnode</span> &#123;</span></span><br><span class="line">  <span class="built_in">string</span> value;</span><br><span class="line">  <span class="keyword">double</span> score;</span><br><span class="line">  zslnode*[] forwards;  <span class="comment">// 多层连接指针</span></span><br><span class="line">  zslnode* backward;  <span class="comment">// 回溯指针</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">zsl</span> &#123;</span></span><br><span class="line">  zslnode* header; <span class="comment">// 跳跃列表头指针</span></span><br><span class="line">  <span class="keyword">int</span> maxLevel; <span class="comment">// 跳跃列表当前的最高层</span></span><br><span class="line">  <span class="built_in">map</span>&lt;<span class="built_in">string</span>, zslnode*&gt; ht; <span class="comment">// hash 结构的所有键值对</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="查找过程"><a href="#查找过程" class="headerlink" title="查找过程"></a>查找过程</h3><p><img src="http://lishq.oss-cn-beijing.aliyuncs.com/github.io/41b6036f2249e072eff9f749e27c409b.png" alt=""></p>
+<h3 id="查找过程"><a href="#查找过程" class="headerlink" title="查找过程"></a>查找过程</h3><p><img src="https://lishq.oss-cn-beijing.aliyuncs.com/github.io/41b6036f2249e072eff9f749e27c409b.png" alt=""></p>
 <ul>
 <li>二分查找</li>
 <li>逐层下降，搜索路径</li>

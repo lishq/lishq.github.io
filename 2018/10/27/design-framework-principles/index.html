@@ -103,18 +103,18 @@
 <meta property="og:site_name" content="I code,I crash">
 <meta property="og:description" content="介绍好的架构和设计可以增加系统健壮性同时也便于维护。面向对象的设计过程中，需要先进行泛化，抽象。然后对具体的对象进行窄化，细化。了解框架设计思想不但可以开阔思维，增加阅读开源项目源码的能力。更能提升一个程序员对程序的抽象和管理能力。以下设计理念来源于Dubbo作者梁飞的总结，很有参考学习意义。总结整理以供学习  大纲 模块分包原则  框架扩展原则  领域划分原则  接口分离原则  组件协作原则">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://lishq.oss-cn-beijing.aliyuncs.com/github.io/af61105e18efadd4fed58d2046dd2edc.png">
-<meta property="og:image" content="http://lishq.oss-cn-beijing.aliyuncs.com/github.io/672a888437e529fb6a98044d17372392.png">
-<meta property="og:image" content="http://lishq.oss-cn-beijing.aliyuncs.com/github.io/e428cb260d5059e2b76eb829b20d76f1.png">
-<meta property="og:image" content="http://lishq.oss-cn-beijing.aliyuncs.com/github.io/46554fc0da119db1baad976dfc723974.png">
-<meta property="og:image" content="http://lishq.oss-cn-beijing.aliyuncs.com/github.io/cb6a0ca958c2985d429cc45abac5f32d.png">
-<meta property="og:image" content="http://lishq.oss-cn-beijing.aliyuncs.com/github.io/6fcd66cafe23063ceed105eb3d56301a.png">
-<meta property="og:image" content="http://lishq.oss-cn-beijing.aliyuncs.com/github.io/2b5587c1a1f805391fec5bd2aba7b2ac.png">
-<meta property="og:updated_time" content="2018-11-14T01:43:45.999Z">
+<meta property="og:image" content="https://lishq.oss-cn-beijing.aliyuncs.com/github.io/af61105e18efadd4fed58d2046dd2edc.png">
+<meta property="og:image" content="https://lishq.oss-cn-beijing.aliyuncs.com/github.io/672a888437e529fb6a98044d17372392.png">
+<meta property="og:image" content="https://lishq.oss-cn-beijing.aliyuncs.com/github.io/e428cb260d5059e2b76eb829b20d76f1.png">
+<meta property="og:image" content="https://lishq.oss-cn-beijing.aliyuncs.com/github.io/46554fc0da119db1baad976dfc723974.png">
+<meta property="og:image" content="https://lishq.oss-cn-beijing.aliyuncs.com/github.io/cb6a0ca958c2985d429cc45abac5f32d.png">
+<meta property="og:image" content="https://lishq.oss-cn-beijing.aliyuncs.com/github.io/6fcd66cafe23063ceed105eb3d56301a.png">
+<meta property="og:image" content="https://lishq.oss-cn-beijing.aliyuncs.com/github.io/2b5587c1a1f805391fec5bd2aba7b2ac.png">
+<meta property="og:updated_time" content="2019-02-11T14:03:18.165Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="框架设计原则">
 <meta name="twitter:description" content="介绍好的架构和设计可以增加系统健壮性同时也便于维护。面向对象的设计过程中，需要先进行泛化，抽象。然后对具体的对象进行窄化，细化。了解框架设计思想不但可以开阔思维，增加阅读开源项目源码的能力。更能提升一个程序员对程序的抽象和管理能力。以下设计理念来源于Dubbo作者梁飞的总结，很有参考学习意义。总结整理以供学习  大纲 模块分包原则  框架扩展原则  领域划分原则  接口分离原则  组件协作原则">
-<meta name="twitter:image" content="http://lishq.oss-cn-beijing.aliyuncs.com/github.io/af61105e18efadd4fed58d2046dd2edc.png">
+<meta name="twitter:image" content="https://lishq.oss-cn-beijing.aliyuncs.com/github.io/af61105e18efadd4fed58d2046dd2edc.png">
 
 
 
@@ -438,16 +438,16 @@
 <li>功能演进原则</li>
 </ul>
 <a id="more"></a>
-<h5 id="模块分包原则"><a href="#模块分包原则" class="headerlink" title="模块分包原则"></a>模块分包原则</h5><p><img src="http://lishq.oss-cn-beijing.aliyuncs.com/github.io/af61105e18efadd4fed58d2046dd2edc.png" alt=""></p>
+<h5 id="模块分包原则"><a href="#模块分包原则" class="headerlink" title="模块分包原则"></a>模块分包原则</h5><p><img src="https://lishq.oss-cn-beijing.aliyuncs.com/github.io/af61105e18efadd4fed58d2046dd2edc.png" alt=""></p>
 <p>对业务进行抽象建模，业务数据与业务逻辑解耦，平台和产品解耦，系统各部件解耦。模块、组件高内聚，低耦合。</p>
 <p>稳定度：各模块被依赖的包应该保持稳定，或者说，被依赖者应当比依赖者稳定，且不能成环状依赖。如果不稳定，将会影响其他的包。</p>
 <p>抽象度，越抽象，越稳定。越具体，越容易变化。</p>
-<h5 id="框架扩展原则"><a href="#框架扩展原则" class="headerlink" title="框架扩展原则"></a>框架扩展原则</h5><p><img src="http://lishq.oss-cn-beijing.aliyuncs.com/github.io/672a888437e529fb6a98044d17372392.png" alt=""></p>
+<h5 id="框架扩展原则"><a href="#框架扩展原则" class="headerlink" title="框架扩展原则"></a>框架扩展原则</h5><p><img src="https://lishq.oss-cn-beijing.aliyuncs.com/github.io/672a888437e529fb6a98044d17372392.png" alt=""></p>
 <p>微核插件式，平等对待第三方。<br>比如Eclipse的微核是OSGi， Spring的微核是BeanFactory，Maven的微核是Plexus，通常核心是不应该带有功能性的，而是一个生命周期和集成容器，这样各功能可以通过相同的方式交互及扩展，并且任何功能都可以被替换， 如果做不到微核，至少要平等对待第三方。</p>
 <p>外置生命周期，尽量引用外部对象的实例，而不类元。尽量使用IOC注入，减少静态工厂方法调用<br>也就是说，框架只负责管理对象，对象的出生和死亡不由框架负责。即，用户应将实例注册到框架中。<br>以服务、数据为中心，构建服务化、组件化架构，具备灵活，按需组合的能力。<br>但Spring就是负责管理对象的生命周期的框架，这个我认为还是在于框架对于自身的定位问题。要灵活对待。</p>
 <p>最少化概念模型，这个其实是一种优化，保持尽可能少的概念，有助于理解。另外，各接口都使用一致的概念模型，能相互指引，并减少模型转换 。</p>
 <p>一致化数据模型：例如 URL 这种对象，就是一致化数据模型，拒绝使用 String 拼接，解析。</p>
-<h5 id="领域划分原则"><a href="#领域划分原则" class="headerlink" title="领域划分原则"></a>领域划分原则</h5><p><img src="http://lishq.oss-cn-beijing.aliyuncs.com/github.io/e428cb260d5059e2b76eb829b20d76f1.png" alt=""></p>
+<h5 id="领域划分原则"><a href="#领域划分原则" class="headerlink" title="领域划分原则"></a>领域划分原则</h5><p><img src="https://lishq.oss-cn-beijing.aliyuncs.com/github.io/e428cb260d5059e2b76eb829b20d76f1.png" alt=""></p>
 <p>任何框架或组件，总会有核心领域模型，比如： Spring的Bean，Struts的Action，Dubbo的Service等等。<br>这个核心领域模型及其组成部分称为实体域，它代表着我们要操作的目标本身，实体域通常是线程安的，不管是通过不变类，同步状态，或复制的方式。<br>服务域也就是行为域，它是组件的功能集，同时也负责实体域和会话域的生命周期管理，比如Spring的ApplicationContext，Dubbo的ServiceManager等。 </p>
 <p>领域模型划分优势：</p>
 <ul>
@@ -459,7 +459,7 @@
 <p>只有保证领域模型线程安全性设计，可变和不可变状态分离，可变状态集中。才能实现无锁编程。同时，设计一定要轻量。否则，对 GC 来说，将是很大的压力。</p>
 <p>通常实体域都是只读的，即不变状态。会话域都是可变状态。</p>
 <p>服务域无状态，天生线程安全，只需单一实例运行。<br>实体域属性只读，或整个类应用替换，线程安全。<br>会话域只在线程栈中使用，没有竞争，线程安全。</p>
-<h5 id="接口分离原则"><a href="#接口分离原则" class="headerlink" title="接口分离原则"></a>接口分离原则</h5><p><img src="http://lishq.oss-cn-beijing.aliyuncs.com/github.io/46554fc0da119db1baad976dfc723974.png" alt=""></p>
+<h5 id="接口分离原则"><a href="#接口分离原则" class="headerlink" title="接口分离原则"></a>接口分离原则</h5><p><img src="https://lishq.oss-cn-beijing.aliyuncs.com/github.io/46554fc0da119db1baad976dfc723974.png" alt=""></p>
 <ul>
 <li>接口分离，单一职责原则的实现。</li>
 <li>API 面向用户，SPI 面向开发者。两者必须分离。</li>
@@ -469,7 +469,7 @@
 <li>对称性接口：有 get 方法，就应该有 set 方法，有 add 就由 remove，称之为对称性和完备性。这样用户能自行推导出接口。</li>
 <li>兼容性：如果接口加方法，应该是增加子接口的方式。</li>
 </ul>
-<h5 id="组件协作原则"><a href="#组件协作原则" class="headerlink" title="组件协作原则"></a>组件协作原则</h5><p><img src="http://lishq.oss-cn-beijing.aliyuncs.com/github.io/cb6a0ca958c2985d429cc45abac5f32d.png" alt=""></p>
+<h5 id="组件协作原则"><a href="#组件协作原则" class="headerlink" title="组件协作原则"></a>组件协作原则</h5><p><img src="https://lishq.oss-cn-beijing.aliyuncs.com/github.io/cb6a0ca958c2985d429cc45abac5f32d.png" alt=""></p>
 <p>首先Dubbo 是管道式设计。一个 Invoker 贯通整个流程，比如Netty的EventLoop、pipeline</p>
 <p>关于派发，比如Spring 的 dispatchServlet</p>
 <p>Dubbo 暴露、引用、调用事件，都预留了监听器。</p>
@@ -486,7 +486,7 @@
 <li>降低修改时的误解性，不埋雷 一个原则就是永远不要区分null引用和empty值。 </li>
 <li>提高代码的可测性 </li>
 </ul>
-<h5 id="功能演进原则"><a href="#功能演进原则" class="headerlink" title="功能演进原则"></a>功能演进原则</h5><p><img src="http://lishq.oss-cn-beijing.aliyuncs.com/github.io/6fcd66cafe23063ceed105eb3d56301a.png" alt=""></p>
+<h5 id="功能演进原则"><a href="#功能演进原则" class="headerlink" title="功能演进原则"></a>功能演进原则</h5><p><img src="https://lishq.oss-cn-beijing.aliyuncs.com/github.io/6fcd66cafe23063ceed105eb3d56301a.png" alt=""></p>
 <ul>
 <li>开闭原则，微核心加插件机制。 软件质量的下降，来源于修改。</li>
 <li>每个扩展点只封装一个变化因子，最大化复用。</li>
@@ -494,7 +494,7 @@
 <li>加功能的姿势：应该是增量式，而不是扩充式，即不在原有基础上修改，而是新增加功能。</li>
 <li>关于高阶：顶层接口尽量抽象，且不能依赖底层实现。这样，当底层实现变化时，高层无需变化。</li>
 </ul>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p><img src="http://lishq.oss-cn-beijing.aliyuncs.com/github.io/2b5587c1a1f805391fec5bd2aba7b2ac.png" alt=""></p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p><img src="https://lishq.oss-cn-beijing.aliyuncs.com/github.io/2b5587c1a1f805391fec5bd2aba7b2ac.png" alt=""></p>
 <blockquote>
 <p>参考：<a href="http://javatar.iteye.com/blog/706098" target="_blank" rel="noopener">http://javatar.iteye.com/blog/706098</a></p>
 </blockquote>

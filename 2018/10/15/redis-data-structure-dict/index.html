@@ -103,13 +103,13 @@
 <meta property="og:site_name" content="I code,I crash">
 <meta property="og:description" content="介绍dict 是 Redis 服务器中出现最为频繁的复合型数据结构 项目地址：https://github.com/lishq/redis-base-demo">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://lishq.oss-cn-beijing.aliyuncs.com/github.io/0a44d4f76cbb411b8a006ac4f43f7044.PNG">
-<meta property="og:image" content="http://lishq.oss-cn-beijing.aliyuncs.com/github.io/fa8f8460eb97ddcb51b37f59f146b551.PNG">
-<meta property="og:updated_time" content="2019-02-08T08:22:41.765Z">
+<meta property="og:image" content="https://lishq.oss-cn-beijing.aliyuncs.com/github.io/0a44d4f76cbb411b8a006ac4f43f7044.PNG">
+<meta property="og:image" content="https://lishq.oss-cn-beijing.aliyuncs.com/github.io/fa8f8460eb97ddcb51b37f59f146b551.PNG">
+<meta property="og:updated_time" content="2019-02-11T14:16:42.815Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="redis数据结构之『字典』">
 <meta name="twitter:description" content="介绍dict 是 Redis 服务器中出现最为频繁的复合型数据结构 项目地址：https://github.com/lishq/redis-base-demo">
-<meta name="twitter:image" content="http://lishq.oss-cn-beijing.aliyuncs.com/github.io/0a44d4f76cbb411b8a006ac4f43f7044.PNG">
+<meta name="twitter:image" content="https://lishq.oss-cn-beijing.aliyuncs.com/github.io/0a44d4f76cbb411b8a006ac4f43f7044.PNG">
 
 
 
@@ -433,11 +433,11 @@
 <li>set的结构底层实现也是dict，只不过所有的value都是NULL<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">RedisDb</span> &#123;</span></span><br><span class="line">    dict* dict; <span class="comment">// all keys  key=&gt;value</span></span><br><span class="line">    dict* expires; <span class="comment">// all expired keys key=&gt;long(timestamp)</span></span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">zset</span> &#123;</span></span><br><span class="line">    dict *dict; <span class="comment">// all values  value=&gt;score</span></span><br><span class="line">    zskiplist *zsl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="dict-内部结构"><a href="#dict-内部结构" class="headerlink" title="dict 内部结构"></a>dict 内部结构</h3><p><img src="http://lishq.oss-cn-beijing.aliyuncs.com/github.io/0a44d4f76cbb411b8a006ac4f43f7044.PNG" alt=""></p>
+<h3 id="dict-内部结构"><a href="#dict-内部结构" class="headerlink" title="dict 内部结构"></a>dict 内部结构</h3><p><img src="https://lishq.oss-cn-beijing.aliyuncs.com/github.io/0a44d4f76cbb411b8a006ac4f43f7044.PNG" alt=""></p>
 <p>dict结构内部包含两个 hashtable，通常情况下只有一个 hashtable 是有值的。但是在 dict 扩容缩容时，需要分配新的 hashtable，然后进行渐进式搬迁，这时候两个 hashtable 存储的分别是旧的 hashtable 和新的 hashtable。待搬迁结束后，旧的 hashtable 的值被删除，新hashtable 取而代之。</p>
 
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">dict</span> &#123;</span></span><br><span class="line">    ...</span><br><span class="line">    dictht ht[<span class="number">2</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="http://lishq.oss-cn-beijing.aliyuncs.com/github.io/fa8f8460eb97ddcb51b37f59f146b551.PNG" alt=""><br>类似Java的HashMap，数组+链表的形式。</p>
+<p><img src="https://lishq.oss-cn-beijing.aliyuncs.com/github.io/fa8f8460eb97ddcb51b37f59f146b551.PNG" alt=""><br>类似Java的HashMap，数组+链表的形式。</p>
 <h3 id="渐进式rehash"><a href="#渐进式rehash" class="headerlink" title="渐进式rehash"></a>渐进式rehash</h3><p>大字典的扩容是遍历链表中所有旧元素，copy到新的数组下，O(n)的操作，所以redis执行渐进式搬迁。</p>
 <ul>
 <li><p>当前dict的hset，hdel会触发搬迁操作</p>

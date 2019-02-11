@@ -103,13 +103,13 @@
 <meta property="og:site_name" content="I code,I crash">
 <meta property="og:description" content="介绍Redis 中的字符串是可以修改的字符串，在内存中它是以字节数组的形式存在的。由于Redis对字符串在安全性、效率以及功能方面的要求。自己构建了一种名为简单动态字符串（simple dynamic string，SDS）的抽象类型， 并将 SDS 用作 Redis 的默认字符串表示。   除了用来保存数据库中的字符串值之外， SDS 还被用作缓冲区（buffer） AOF 模块中的 AOF 缓">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://lishq.oss-cn-beijing.aliyuncs.com/github.io/f5bce2a1817a05af15e5b21c3dc5a0df.png">
-<meta property="og:image" content="http://lishq.oss-cn-beijing.aliyuncs.com/github.io/72c2095b0441cf8770dc6ca3ec43a17c.png">
-<meta property="og:updated_time" content="2019-02-08T08:23:12.703Z">
+<meta property="og:image" content="https://lishq.oss-cn-beijing.aliyuncs.com/github.io/f5bce2a1817a05af15e5b21c3dc5a0df.png">
+<meta property="og:image" content="https://lishq.oss-cn-beijing.aliyuncs.com/github.io/72c2095b0441cf8770dc6ca3ec43a17c.png">
+<meta property="og:updated_time" content="2019-02-11T14:17:51.301Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="redis数据结构之『字符串』">
 <meta name="twitter:description" content="介绍Redis 中的字符串是可以修改的字符串，在内存中它是以字节数组的形式存在的。由于Redis对字符串在安全性、效率以及功能方面的要求。自己构建了一种名为简单动态字符串（simple dynamic string，SDS）的抽象类型， 并将 SDS 用作 Redis 的默认字符串表示。   除了用来保存数据库中的字符串值之外， SDS 还被用作缓冲区（buffer） AOF 模块中的 AOF 缓">
-<meta name="twitter:image" content="http://lishq.oss-cn-beijing.aliyuncs.com/github.io/f5bce2a1817a05af15e5b21c3dc5a0df.png">
+<meta name="twitter:image" content="https://lishq.oss-cn-beijing.aliyuncs.com/github.io/f5bce2a1817a05af15e5b21c3dc5a0df.png">
 
 
 
@@ -441,10 +441,10 @@
 <ul>
 <li>在字符串比较小时，SDS 对象头的大小是capacity+3，至少是 3。意味着分配一个字符串的最小空间占用为 19 字节 (16+3)。</li>
 </ul>
-<p><img src="http://lishq.oss-cn-beijing.aliyuncs.com/github.io/f5bce2a1817a05af15e5b21c3dc5a0df.png" alt=""></p>
+<p><img src="https://lishq.oss-cn-beijing.aliyuncs.com/github.io/f5bce2a1817a05af15e5b21c3dc5a0df.png" alt=""></p>
 <p>embstr将RedisObject对象头和sds连续存储，只需要一次malloc，占用内存更少。但是每次改变需要重新分配内存。</p>
 <p>raw需要两次malloc，两个对象头在内存地址不连续。</p>
-<p>因为jemalloc/tcmalloc 等分配内存的单位是2的指数。如果长度超过64bytes，redis认为是大字符串。不再使用embstr存储，改用raw形式。<br><img src="http://lishq.oss-cn-beijing.aliyuncs.com/github.io/72c2095b0441cf8770dc6ca3ec43a17c.png" alt=""><br>看上面这张图可以算出，留给 content 的长度最多只有 45(64-19) 字节了。字符串又是以\0结尾，之所以多出这样一个字节，是为了便于直接使用 glibc 的字符串处理函数，所以 embstr 最大能容纳的字符串长度就是 44。</p>
+<p>因为jemalloc/tcmalloc 等分配内存的单位是2的指数。如果长度超过64bytes，redis认为是大字符串。不再使用embstr存储，改用raw形式。<br><img src="https://lishq.oss-cn-beijing.aliyuncs.com/github.io/72c2095b0441cf8770dc6ca3ec43a17c.png" alt=""><br>看上面这张图可以算出，留给 content 的长度最多只有 45(64-19) 字节了。字符串又是以\0结尾，之所以多出这样一个字节，是为了便于直接使用 glibc 的字符串处理函数，所以 embstr 最大能容纳的字符串长度就是 44。</p>
 <h3 id="扩容策略"><a href="#扩容策略" class="headerlink" title="扩容策略"></a>扩容策略</h3><p>字符串在长度小于 1M 之前，扩容空间采用加倍策略，也就是保留 100% 的冗余空间。当长度超过 1M 之后，为了避免加倍后的冗余空间过大而导致浪费，每次扩容只会多分配 1M 大小的冗余空间。</p>
 <p>Redis 规定字符串的长度不得超过 512M 字节。创建字符串时 len 和 capacity 一样长，不会多分配冗余空间，这是因为绝大多数场景下我们不会使用 append 操作来修改字符串。</p>
 <h3 id="C字符串和-SDS-之间的区别"><a href="#C字符串和-SDS-之间的区别" class="headerlink" title="C字符串和 SDS 之间的区别"></a>C字符串和 SDS 之间的区别</h3><ul>

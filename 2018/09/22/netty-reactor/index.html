@@ -103,14 +103,14 @@
 <meta property="og:site_name" content="I code,I crash">
 <meta property="og:description" content="Reactor模型大量网络框架采用reactor模型进行设计和开发，reactor模式基于事件驱动，特别适合处理海量的I/O事件。  Reactor多线程模型  有专门的nio线程-acceptor线程用于监听服务端，接收客户端的tcp连接请求 网络io操作读写由一个nio线程池负责，包含一个队列和多个可用线程，由这些nio线程负责消息的读取，解码，编码，发送 一个nio线程可以同时处理n条链路，">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://lishq.oss-cn-beijing.aliyuncs.com/github.io/ce86218219ff60c70d21e5f20c3c217e.jpg">
-<meta property="og:image" content="http://lishq.oss-cn-beijing.aliyuncs.com/github.io/a094b188a9eff9b5da27a68315af3452.png">
-<meta property="og:image" content="http://lishq.oss-cn-beijing.aliyuncs.com/github.io/05cabcc6c3abcfc32fbc49feec4e0e41.png">
-<meta property="og:updated_time" content="2018-10-29T07:49:31.436Z">
+<meta property="og:image" content="https://lishq.oss-cn-beijing.aliyuncs.com/github.io/ce86218219ff60c70d21e5f20c3c217e.jpg">
+<meta property="og:image" content="https://lishq.oss-cn-beijing.aliyuncs.com/github.io/a094b188a9eff9b5da27a68315af3452.png">
+<meta property="og:image" content="https://lishq.oss-cn-beijing.aliyuncs.com/github.io/05cabcc6c3abcfc32fbc49feec4e0e41.png">
+<meta property="og:updated_time" content="2019-02-11T14:13:16.208Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="netty-reactor">
 <meta name="twitter:description" content="Reactor模型大量网络框架采用reactor模型进行设计和开发，reactor模式基于事件驱动，特别适合处理海量的I/O事件。  Reactor多线程模型  有专门的nio线程-acceptor线程用于监听服务端，接收客户端的tcp连接请求 网络io操作读写由一个nio线程池负责，包含一个队列和多个可用线程，由这些nio线程负责消息的读取，解码，编码，发送 一个nio线程可以同时处理n条链路，">
-<meta name="twitter:image" content="http://lishq.oss-cn-beijing.aliyuncs.com/github.io/ce86218219ff60c70d21e5f20c3c217e.jpg">
+<meta name="twitter:image" content="https://lishq.oss-cn-beijing.aliyuncs.com/github.io/ce86218219ff60c70d21e5f20c3c217e.jpg">
 
 
 
@@ -425,7 +425,7 @@
       
         <h3 id="Reactor模型"><a href="#Reactor模型" class="headerlink" title="Reactor模型"></a>Reactor模型</h3><p>大量网络框架采用reactor模型进行设计和开发，reactor模式基于事件驱动，特别适合处理海量的I/O事件。</p>
 
-<h3 id="Reactor多线程模型"><a href="#Reactor多线程模型" class="headerlink" title="Reactor多线程模型"></a>Reactor<a href="https://blog.csdn.net/king866/article/details/54427447" target="_blank" rel="noopener">多线程模型</a></h3><p><img src="http://lishq.oss-cn-beijing.aliyuncs.com/github.io/ce86218219ff60c70d21e5f20c3c217e.jpg" alt="多线程模型"></p>
+<h3 id="Reactor多线程模型"><a href="#Reactor多线程模型" class="headerlink" title="Reactor多线程模型"></a>Reactor<a href="https://blog.csdn.net/king866/article/details/54427447" target="_blank" rel="noopener">多线程模型</a></h3><p><img src="https://lishq.oss-cn-beijing.aliyuncs.com/github.io/ce86218219ff60c70d21e5f20c3c217e.jpg" alt="多线程模型"></p>
 <ul>
 <li>有专门的nio线程-acceptor线程用于监听服务端，接收客户端的tcp连接请求</li>
 <li>网络io操作读写由一个nio线程池负责，包含一个队列和多个可用线程，由这些nio线程负责消息的读取，解码，编码，发送</li>
@@ -438,7 +438,7 @@
 <p>为了解决性能问题，出现了主从reactor多线程模型。</p>
 
 <a id="more"></a>
-<h3 id="Netty中Reactor模型的实现"><a href="#Netty中Reactor模型的实现" class="headerlink" title="Netty中Reactor模型的实现"></a>Netty中Reactor模型的实现</h3><p><img src="http://lishq.oss-cn-beijing.aliyuncs.com/github.io/a094b188a9eff9b5da27a68315af3452.png" alt="netty-model"></p>
+<h3 id="Netty中Reactor模型的实现"><a href="#Netty中Reactor模型的实现" class="headerlink" title="Netty中Reactor模型的实现"></a>Netty中Reactor模型的实现</h3><p><img src="https://lishq.oss-cn-beijing.aliyuncs.com/github.io/a094b188a9eff9b5da27a68315af3452.png" alt="netty-model"></p>
 <p>特点</p>
 <ul>
 <li>服务端接收客户端的连接是一个独立的nio线程池</li>
@@ -527,7 +527,7 @@
 |  Netty Internal I/O Threads (Transport Implementation)            |
 +-------------------------------------------------------------------+</pre>
 
-<h3 id="NioEventLoop的设计原理"><a href="#NioEventLoop的设计原理" class="headerlink" title="NioEventLoop的设计原理"></a>NioEventLoop的设计原理</h3><p><img src="http://lishq.oss-cn-beijing.aliyuncs.com/github.io/05cabcc6c3abcfc32fbc49feec4e0e41.png" alt="NioEventLoop"></p>
+<h3 id="NioEventLoop的设计原理"><a href="#NioEventLoop的设计原理" class="headerlink" title="NioEventLoop的设计原理"></a>NioEventLoop的设计原理</h3><p><img src="https://lishq.oss-cn-beijing.aliyuncs.com/github.io/05cabcc6c3abcfc32fbc49feec4e0e41.png" alt="NioEventLoop"></p>
 <ul>
 <li><p>消息的读取，解码，后续handler的执行，始终由NioEventLoop负责，整个流程不会存在上下文的切换</p>
 </li>
