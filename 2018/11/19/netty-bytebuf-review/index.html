@@ -116,7 +116,7 @@
     root: '/',
     scheme: 'Gemini',
     version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    sidebar: {"position":"left","display":"post","offset":15,"b2t":false,"scrollpercent":true,"onmobile":false},
     fancybox: true,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
@@ -713,30 +713,10 @@
 
           
           
+		  
+		  
 
           
-          
-            <div class="links-of-blogroll motion-element links-of-blogroll-block">
-              <div class="links-of-blogroll-title">
-                <i class="fa  fa-fw fa-link"></i>
-                友情链接
-              </div>
-              <ul class="links-of-blogroll-list">
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="https://xaoxuu.com/blog/" title="xaoxuu's blog" target="_blank">xaoxuu's blog</a>
-                  </li>
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="https://diygod.me/" title="DIYgod" target="_blank">DIYgod</a>
-                  </li>
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="https://blog.mxd.moe/" title="玩脱了的奶鱼" target="_blank">玩脱了的奶鱼</a>
-                  </li>
-                
-              </ul>
-            </div>
           
 
           
@@ -1518,7 +1498,11 @@
         function evanyou() {
             x.clearRect(0, 0, w, h)
             q = [{ x: 0, y: h * .7 + f }, { x: 0, y: h * .7 - f }]
-            while (q[1].x < w + f) d(q[0], q[1])
+            while (q[1].x < w + f) {
+			    console.log("error,很晚了下次再说！");
+				d(q[0], q[1])
+			}
+			   
         }
         function d(i, j) {
             x.beginPath()
@@ -1542,5 +1526,12 @@
         document.ontouchstart = evanyou
         evanyou();
 </script>
+<!--<script type="text/javascript" src="/js/src/crash_cheat.js"></script>-->
+
+<canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+<script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+<script type="text/javascript" src="/js/src/fireworks.js"></script>
+
+<script type="text/javascript" src="/js/src/copy.js"></script>
 </body>
 </html>
