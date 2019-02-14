@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.tolvyou.cn/"/>
-  <updated>2019-02-11T14:06:25.813Z</updated>
+  <updated>2019-02-14T02:28:19.477Z</updated>
   <id>https://blog.tolvyou.cn/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>note-star-sky</title>
+    <link href="https://blog.tolvyou.cn/2019/02/14/note-star-sky/"/>
+    <id>https://blog.tolvyou.cn/2019/02/14/note-star-sky/</id>
+    <published>2019-02-14T01:55:50.000Z</published>
+    <updated>2019-02-14T02:28:19.477Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>@maybeafox分享的二胡版star sky 满满的中国史诗感，超爱</p><div id="dplayer0" class="dplayer hexo-tag-dplayer-mark" style="margin-bottom: 20px;"></div><script>(function(){var player = new DPlayer({"container":document.getElementById("dplayer0"),"video":{"url":"https://lishq.oss-cn-beijing.aliyuncs.com/github.io/music/%E5%B0%BC%E5%B0%94%E6%9C%BA%E6%A2%B0%E7%BA%AA%E5%85%83.mp4"},"danmaku":{"id":"519291b37dcb33a42ced577c67628e86\"","api":"https://api.prprpr.me/dplayer/"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})()</script><blockquote><p>原视频地址：<br><a href="https://www.bilibili.com/video/av19095629/" target="_blank" rel="noopener">https://www.bilibili.com/video/av19095629/</a></p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+    
+      <category term="Note" scheme="https://blog.tolvyou.cn/tags/Note/"/>
+    
+  </entry>
   
   <entry>
     <title>JMM内存模型</title>

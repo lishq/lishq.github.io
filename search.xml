@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[note-star-sky]]></title>
+    <url>%2F2019%2F02%2F14%2Fnote-star-sky%2F</url>
+    <content type="text"><![CDATA[@maybeafox分享的二胡版star sky 满满的中国史诗感，超爱 (function(){var player = new DPlayer({"container":document.getElementById("dplayer0"),"video":{"url":"https://lishq.oss-cn-beijing.aliyuncs.com/github.io/music/%E5%B0%BC%E5%B0%94%E6%9C%BA%E6%A2%B0%E7%BA%AA%E5%85%83.mp4"},"danmaku":{"id":"519291b37dcb33a42ced577c67628e86\"","api":"https://api.prprpr.me/dplayer/"}});window.dplayers||(window.dplayers=[]);window.dplayers.push(player);})() 原视频地址：https://www.bilibili.com/video/av19095629/]]></content>
+      <tags>
+        <tag>Note</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[JMM内存模型]]></title>
     <url>%2F2019%2F01%2F11%2FJMM-Mind%2F</url>
     <content type="text"><![CDATA[介绍Java内存模型思维导图 原图地址：https://lishq.oss-cn-beijing.aliyuncs.com/github.io/JMM-Mind.png 参考： 《并发编程的艺术》]]></content>
